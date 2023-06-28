@@ -137,7 +137,11 @@ $fetch = $login_user->fetch(PDO::FETCH_ASSOC);
        ['password'])) {
            //start session vars
            
-           header("location: ".$path."");
+          $_SESSION['email'] = $fetch['email'];
+          $_SESSION['username'] = $fetch['username'];
+          $_SESSION['user_id'] = $fetch['id'];
+
+           header("location: ".APPURL."");
        }
     }  
 }
