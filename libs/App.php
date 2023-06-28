@@ -11,7 +11,7 @@ class App {
 
   //create a constructor
 
-  public function __constructor() {
+  public function __construct() {
 
     $this->connect();
 
@@ -128,7 +128,7 @@ public function login($query, $data, $path) {
 $login_user = $this->link->query($query);
 $login_user->execute();
 
-$fetch = $login_user->fetch(PDO::FETCH_OBJ);
+$fetch = $login_user->fetch(PDO::FETCH_ASSOC);
 
     if($login_user->rowCount() > 0) {
       //password
