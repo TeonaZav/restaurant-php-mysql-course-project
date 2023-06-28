@@ -20,9 +20,9 @@ class App {
   public function connect() {
     $this->link = new PDO("mysql:host=".$this->host."; dbname=".$this->dbname."", $this->user, $this->pass);
 
-     if($this->link) {
-        echo "db connection is working";
-      }
+    //  if($this->link) {
+    //     echo "db connection is working";
+    //   }
   }
 
   //select all from database
@@ -155,9 +155,9 @@ public function startingSession() {
 
 //validating sessions
 
-public function validateSession($path) {
-  if(isset($_SESSION['id'])) {
-    header("location: ".$path."");
+public function validateSession() {
+  if(isset($_SESSION['user_id'])) {
+    echo "<script>window.location.href='".APPURL."' </script>";
   }
 }
 
