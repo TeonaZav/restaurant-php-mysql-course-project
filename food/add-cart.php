@@ -12,6 +12,11 @@ if(isset($_GET['id'])) {
 
   $one = $app->selectOne($query);
 
+  if(isset($_SESSION['user_id'])) {
+    $q = "SELECT * FROM cart WHERE item_id='$id' AND user_id = '$_SESSION[user_id]'";
+    $count = $app->validateCart($q);
+
+  }
 
   if(isset($_POST['submit'])) {
 
@@ -92,11 +97,13 @@ if(isset($_GET['id'])) {
                   <input name="name" type="text" value="<?php echo $one->name; ?>">
                   <input name="image" type="text" value="<?php echo $one->image; ?>">
                   <input name="price" type="text" value="<?php echo $one->price; ?>">
+                 <?php if($count > 0) : ?>
+                  <button name="submit" type="submit" class="btn btn-primary py-3 px-5 mt-2" disabled>Added To Cart</button> 
+                <?php else : ?>
+                  <button name="submit" type="submit" class="btn btn-primary py-3 px-5 mt-2">Add To Cart</button> 
+                <?php endif; ?>
 
-                  <button name="submit" type="submit" class="btn btn-primary py-3 px-5 mt-2" >Add to Cart</button> 
               </form>
-                  
-             
             
             </div>
           </div>
