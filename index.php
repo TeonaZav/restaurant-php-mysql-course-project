@@ -184,7 +184,7 @@
                                                 <span class="text-primary">$<?php echo $meal_1->price; ?></span>
                                             </h5>
                                             <small class="fst-italic"><?php echo $meal_1->description; ?></small>
-                                            <a type="button" href="<?php echo APPURL; ?>/add-cart.php?id=<?php echo $meal_1->meal_id; ?> " class="btn btn-primary py-2 top-0 end-0 mt-2 me-2">view</a>
+                                            <a type="button" href="<?php echo APPURL; ?>/food/add-cart.php?id=<?php echo $meal_1->id; ?> " class="btn btn-primary py-2 top-0 end-0 mt-2 me-2">view</a>
                                         </div>
                                     </div>
                                 </div>
@@ -204,7 +204,7 @@
                                                 <span class="text-primary">$<?php echo $meal_2->price; ?></span>
                                             </h5>
                                             <small class="fst-italic"><?php echo $meal_2->description; ?></small>
-                                            <a type="button" href="<?php echo APPURL; ?>/add-cart.php?id=<?php echo $meal_2->meal_id; ?> " class="btn btn-primary py-2 top-0 end-0 mt-2 me-2">view</a>
+                                            <a type="button" href="<?php echo APPURL; ?>/food/add-cart.php?id=<?php echo $meal_2->id; ?> " class="btn btn-primary py-2 top-0 end-0 mt-2 me-2">view</a>
                                         </div>
                                     </div>
                                 </div>
@@ -223,7 +223,7 @@
                                                 <span class="text-primary">$<?php echo $meal_3->price; ?></span>
                                             </h5>
                                             <small class="fst-italic"><?php echo $meal_3->description; ?></small>
-                                            <a type="button" href="<?php echo APPURL; ?>/add-cart.php?id=<?php echo $meal_3->meal_id; ?> " class="btn btn-primary py-2 top-0 end-0 mt-2 me-2">view</a>
+                                            <a type="button" href="<?php echo APPURL; ?>/food/add-cart.php?id=<?php echo $meal_3->id; ?> " class="btn btn-primary py-2 top-0 end-0 mt-2 me-2">view</a>
                                         </div>
                                     </div>
                                 </div>

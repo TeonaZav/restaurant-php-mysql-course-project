@@ -68,7 +68,7 @@ public function insert($query, $arr, $path) {
     $insert_record = $this->link->prepare($query);
     $insert_record->execute($arr);
 
-    header("location: ".$path."");
+    echo "<script>window.location.href='".$path."' </script>";
   }
 }
 
