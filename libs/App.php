@@ -101,7 +101,7 @@ public function delete($query, $path) {
     $delete_record = $this->link->query($query);
     $delete_record->execute();
 
-    header("location: ".$path."");
+    echo "<script>window.location.href='".$path."' </script>";
  
 }
 
