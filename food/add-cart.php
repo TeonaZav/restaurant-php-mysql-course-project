@@ -41,9 +41,10 @@ if(isset($_GET['id'])) {
     $app->insert($query, $arr, $path);
   
   }
-} else {
-  echo "<script>window.location.href='".APPURL."/404.php'</script>";
-}
+} 
+// else {
+//   echo "<script>window.location.href='".APPURL."/404.php'</script>";
+// }
 
 
 
@@ -99,12 +100,13 @@ if(isset($_GET['id'])) {
                   <input name="name" type="text" value="<?php echo $one->name; ?>">
                   <input name="image" type="text" value="<?php echo $one->image; ?>">
                   <input name="price" type="text" value="<?php echo $one->price; ?>">
-                 <?php if($count > 0) : ?>
-                  <button name="submit" type="submit" class="btn btn-primary py-3 px-5 mt-2" disabled>Added To Cart</button> 
-                <?php else : ?>
-                  <button name="submit" type="submit" class="btn btn-primary py-3 px-5 mt-2">Add To Cart</button> 
-                <?php endif; ?>
-
+                  <?php if(isset($_SESSION['user_id'])) : ?>
+                        <?php if($count > 0) : ?>
+                          <button name="submit" type="submit" class="btn btn-primary py-3 px-5 mt-2" disabled>Added To Cart</button> 
+                        <?php else : ?>
+                          <button name="submit" type="submit" class="btn btn-primary py-3 px-5 mt-2">Add To Cart</button> 
+                        <?php endif; ?>
+                  <?php endif; ?>
               </form>
             
             </div>

@@ -32,6 +32,7 @@ $orders = $app->selectAll($query);
                   </tr>
                 </thead>
                 <tbody>
+        <?php if (is_iterable($orders)) : ?>
             <?php foreach($orders as $order) : ?>
                   <tr>
                     <th scope="row"><?php echo $order->id; ?></th>
@@ -43,6 +44,7 @@ $orders = $app->selectAll($query);
                     <td><?php echo $order->address; ?> </td>
                     <td>$<?php echo $order->total_price; ?>
                   <?php endforeach; ?>
+        <?php endif; ?>
                 </tbody>
               </table> 
             </div>

@@ -28,6 +28,7 @@ $admins = $app->selectAll($query);
                   </tr>
                 </thead>
                 <tbody>
+          <?php if (is_iterable($admins)) : ?>
                 <?php foreach($admins as $admin) : ?>
                   <tr>
                     <th scope="row"><?php echo $admin->id; ?></th>
@@ -36,6 +37,7 @@ $admins = $app->selectAll($query);
                    
                   </tr>
                   <?php endforeach; ?>
+          <?php endif; ?>
                 </tbody>
               </table> 
             </div>

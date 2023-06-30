@@ -75,7 +75,7 @@ public function insert($query, $arr, $path) {
   } else {
     $insert_record = $this->link->prepare($query);
     $insert_record->execute($arr);
-
+    echo '<script>alert("Inserted into database")</script>';
     echo "<script>window.location.href='".$path."' </script>";
   }
 }
@@ -89,7 +89,7 @@ public function update($query, $arr, $path) {
   } else {
     $update_record = $this->link->prepare($query);
     $update_record->execute($arr);
-
+    echo '<script>alert("Updated")</script>';
     header("location: ".$path."");
   }
 }
@@ -100,7 +100,7 @@ public function delete($query, $path) {
 
     $delete_record = $this->link->query($query);
     $delete_record->execute();
-
+    echo '<script>alert("Deleted from database")</script>';
     echo "<script>window.location.href='".$path."' </script>";
  
 }
@@ -119,10 +119,9 @@ public function register($query, $arr, $path) {
   if($this->validate($arr) == "empty") {
     echo "<script>alert('one or more inputs are empty')</script>";
   } else {
-    echo "problem";
     $register_user = $this->link->prepare($query);
     $register_user->execute($arr);
-
+    echo '<script>alert("Inserted into database")</script>';
     header("location: ".$path."");
   }
 }
@@ -148,7 +147,7 @@ $fetch = $login_user->fetch(PDO::FETCH_ASSOC);
           $_SESSION['email'] = $fetch['email'];
           $_SESSION['username'] = $fetch['username'];
           $_SESSION['user_id'] = $fetch['id'];
-
+          echo '<script>alert("Hi")</script>';
            header("location: ".$path."");
        }
     }  

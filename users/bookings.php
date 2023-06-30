@@ -40,6 +40,7 @@
                           </tr>
                         </thead>
                         <tbody>
+                    <?php if (is_iterable($bookings)) : ?>
                         <?php foreach($bookings as $booking) : ?>
                           <tr>
                             
@@ -56,6 +57,7 @@
                           </tr>
                       
                           <?php endforeach; ?>
+                    <?php endif; ?>
                         </tbody>
                       </table>
                 </div>

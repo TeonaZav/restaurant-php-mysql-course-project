@@ -29,6 +29,7 @@ $foods = $app->selectAll($query);
                   </tr>
                 </thead>
                 <tbody>
+            <?php if (is_iterable($foods)) : ?>
                 <?php foreach($foods as $food) : ?>
                   <tr>
                     <th scope="row"><?php echo $food->id; ?></th>
@@ -38,6 +39,7 @@ $foods = $app->selectAll($query);
                      <td><a href="delete-foods.php?id=<?php echo $food->id; ?>" class="btn btn-danger  text-center">delete</a></td>
                   </tr> 
                 <?php endforeach; ?>
+          <?php endif; ?>
                 </tbody>
               </table> 
             </div>

@@ -4,7 +4,7 @@
 <?php 
 
 
-    if(!isset($_SESSION['uder_id'])) {
+    if(!isset($_SESSION['user_id'])) {
       echo "<script>window.location.href='".APPURL."'</script>";
     }
 
@@ -54,6 +54,7 @@
                           </tr>
                         </thead>
                         <tbody>
+                      <?php if (is_iterable($cart_items)) : ?>
                         <?php foreach($cart_items as $cart_item) : ?>
                           <tr>
                             <th><img src="<?php echo APPURL; ?>/img/<?php echo $cart_item->image; ?>" alt="product image" style="width: 50px; height: 50px; border-radius: 2px"></th>
@@ -62,6 +63,7 @@
                             <td><a href="<?php echo APPURL; ?>/food/delete-item.php?id=<?php echo $cart_item->id; ?>" class="btn btn-danger text-white" />delete</td>
                           </tr>
                           <?php endforeach; ?>
+                        <?php endif; ?>
                         </tbody>
                       </table>
                       <div class="position-relative mx-auto" style="max-width: 400px; padding-left: 679px;">

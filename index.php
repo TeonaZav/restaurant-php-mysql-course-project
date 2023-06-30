@@ -179,10 +179,11 @@
                     <div class="tab-content">
                         <div id="tab-1" class="tab-pane fade show p-0 active">
                             <div class="row g-4">
+                            <?php if (is_iterable($meals_1)) : ?>
                                 <?php foreach($meals_1 as $meal_1) : ?>
                                 <div class="col-lg-6">
                                     <div class="d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid rounded" src="img/<?php echo $meal_1->image; ?>.jpg" alt="" style="width: 80px;">
+                                        <img class="flex-shrink-0 img-fluid rounded" src="<?php echo APPURL; ?>/img/<?php echo $meal_1->image; ?>" alt="" style="width: 80px;">
                                         <div class="w-100 d-flex flex-column text-start ps-4">
                                             <h5 class="d-flex justify-content-between border-bottom pb-2">
                                                 <span><?php echo $meal_1->name; ?></span>
@@ -194,15 +195,16 @@
                                     </div>
                                 </div>
                                 <?php endforeach; ?>
-                               
+                        <?php endif; ?>
                             </div>
                         </div>
                         <div id="tab-2" class="tab-pane fade show p-0">
                             <div class="row g-4">
+                    <?php if (is_iterable($meals_2)) : ?>
                             <?php foreach($meals_2 as $meal_2) : ?>
                                 <div class="col-lg-6">
                                     <div class="d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid rounded" src="img/<?php echo $meal_2->image; ?>.jpg" alt="" style="width: 80px;">
+                                        <img class="flex-shrink-0 img-fluid rounded" src="img/<?php echo $meal_2->image; ?>" alt="" style="width: 80px;">
                                         <div class="w-100 d-flex flex-column text-start ps-4">
                                             <h5 class="d-flex justify-content-between border-bottom pb-2">
                                                 <span><?php echo $meal_2->name; ?></span>
@@ -214,14 +216,16 @@
                                     </div>
                                 </div>
                                 <?php endforeach; ?>
+                    <?php endif; ?>
                             </div>
                         </div>
                         <div id="tab-3" class="tab-pane fade show p-0">
                             <div class="row g-4">
+                    <?php if (is_iterable($meals_3)) : ?>
                             <?php foreach($meals_3 as $meal_3) : ?>
                                 <div class="col-lg-6">
                                     <div class="d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid rounded" src="img/<?php echo $meal_3->image; ?>.jpg" alt="" style="width: 80px;">
+                                        <img class="flex-shrink-0 img-fluid rounded" src="img/<?php echo $meal_3->image; ?>" alt="" style="width: 80px;">
                                         <div class="w-100 d-flex flex-column text-start ps-4">
                                             <h5 class="d-flex justify-content-between border-bottom pb-2">
                                                 <span><?php echo $meal_3->name; ?></span>
@@ -234,6 +238,8 @@
                                 </div>
                             
                                 <?php endforeach; ?>
+
+                            <?php endif; ?>
                             </div>
                         </div>
                     </div>
@@ -409,7 +415,7 @@
                     <h1 class="mb-5">Our Clients Say!!!</h1>
                 </div>
                 <div class="owl-carousel testimonial-carousel">
-
+        <?php if (is_iterable($reviews)) : ?>
                 <?php foreach($reviews as $review) : ?>
                     <div class="testimonial-item bg-transparent border rounded p-4">
                         <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
@@ -423,6 +429,7 @@
                         </div>
                     </div>
                     <?php endforeach; ?>
+            <?php endif; ?>
                 </div>
             </div>
         </div>

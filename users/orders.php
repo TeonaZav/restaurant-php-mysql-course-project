@@ -43,6 +43,7 @@
                           </tr>
                         </thead>
                         <tbody>
+                  <?php if (is_iterable($orders)) : ?>
                         <?php foreach($orders as $order) : ?>
                           <tr>
                             
@@ -58,6 +59,7 @@
                           </tr>
                           <?php endforeach; ?>
                         </tbody>
+                    <?php endif; ?>
                       </table>
                 </div>
             </div>

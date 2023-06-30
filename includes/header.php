@@ -4,6 +4,7 @@
     $app->startingSession();
 
     define("APPURL", "http://localhost/restoran");
+   
 
 
 ?><!DOCTYPE html>

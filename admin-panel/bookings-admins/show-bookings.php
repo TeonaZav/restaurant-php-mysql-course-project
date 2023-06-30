@@ -32,6 +32,7 @@ $bookings = $app->selectAll($query);
                   </tr>
                 </thead>
                 <tbody>
+            <?php if (is_iterable($bookings)) : ?>
                 <?php foreach($bookings as $booking) : ?>
                   <tr>
                     <td><?php echo $booking->name; ?></td>
@@ -50,6 +51,7 @@ $bookings = $app->selectAll($query);
                      <td><a href="delete-bookings.php?id=<?php echo $booking->id; ?>" class="btn btn-danger  text-center">delete</a></td>
                   </tr>
                   <?php endforeach; ?>
+              <?php endif; ?>
                 </tbody>
               </table> 
             </div>
