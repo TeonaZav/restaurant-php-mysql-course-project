@@ -45,5 +45,4 @@ $foods = $app->selectAll($query);
         </div>
       </div>
 
-
       <?php require "../layouts/footer.php"; ?>

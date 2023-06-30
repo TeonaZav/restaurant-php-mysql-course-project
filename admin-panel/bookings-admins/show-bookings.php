@@ -1,121 +1,55 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <!-- This file has been downloaded from Bootsnipp.com. Enjoy! -->
-    <title>Admin Panel</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
-     <link href="../styles/style.css" rel="stylesheet">
-    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-</head>
-<body>
-<div id="wrapper">
-    <nav class="navbar header-top fixed-top navbar-expand-lg  navbar-dark bg-dark">
-      <div class="container">
-      <a class="navbar-brand" href="#">LOGO</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText"
-        aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+<?php require "../../config/config.php"; ?>
+<?php require "../../libs/App.php"; ?>
+<?php require "../layouts/header.php"; ?>
 
-      <div class="collapse navbar-collapse" id="navbarText">
-        <ul class="navbar-nav side-nav" >
-          <li class="nav-item">
-            <a class="nav-link" style="margin-left: 20px;" href="../index.html">Home
-              <span class="sr-only">(current)</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../admins/admins.html" style="margin-left: 20px;">Admins</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../orders-admins/show-orders.html" style="margin-left: 20px;">Orders</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../foods-admins/show-foods.html" style="margin-left: 20px;">Foods</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="bookings-admins/show-bookings.html" style="margin-left: 20px;">Bookings</a>
-          </li>
-        </ul>
-        <ul class="navbar-nav ml-md-auto d-md-flex">
-          <li class="nav-item">
-            <a class="nav-link" href="../index.html">Home
-              <span class="sr-only">(current)</span>
-            </a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link  dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              username
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Logout</a>
-              
-          </li>
-                          
-          
-        </ul>
-      </div>
-    </div>
-    </nav>
-    <div class="container-fluid">
+<?php 
 
+$query = "SELECT * FROM bookings";
+$app = new App;
+
+$app->validateSessionAdminPages();
+$bookings = $app->selectAll($query);
+
+?>
           <div class="row">
         <div class="col">
           <div class="card">
-            <div class="card-body">
+            <div class="card-body ">
               <h5 class="card-title mb-4 d-inline">Bookings</h5>
             
-              <table class="table">
-                <thead>
+              <table class="table mt-2">
+                <thead >
                   <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">name</th>
-                    <th scope="col">email</th>
-                    <th scope="col">date_booking</th>
-                    <th scope="col">num_people</th>
-                    <th scope="col">special_request</th>
-                    <th scope="col">status</th>
-                    <th scope="col">created_at</th>
-                    <th scope="col">delete</th>
+                    <th scope="col" class="align-middle text-center">Name</th>
+                    <th scope="col" class="align-middle text-center">e-mail</th>
+                    <th scope="col" class="align-middle text-center">Booking Date</th>
+                    <th scope="col" class="align-middle text-center">People</th>
+                    <th scope="col" class="align-middle text-center">Special Note</th>
+                    <th scope="col" class="align-middle text-center" > Date</th>
+                    <th scope="col" class="align-middle text-center">Status</th>
+                    <th scope="col" class="align-middle text-center">Change Status</th>
+                    <th scope="col" class="align-middle text-center">Delete</th>
                   </tr>
                 </thead>
                 <tbody>
+                <?php foreach($bookings as $booking) : ?>
                   <tr>
-                    <th scope="row">1</th>
-                    <td>MOhamed</td>
-                    <td>moha@gmail.com</td>
-                    <td>04/12/2023 3:13 PM</td>
-                    <td>3</td>
-                    <td>Rapidiously expedite team driven potentialities with interoperable "outside the box" thinking. Professionally formulate cross-platform interna</td>
-                    <td>Pending</td>
-                    <td>2023-04-09 15:13:17</td>
-                     <td><a href="delete-bookings.html" class="btn btn-danger  text-center ">delete</a></td>
+                    <td><?php echo $booking->name; ?></td>
+                    <td><?php echo $booking->email; ?></td>
+                    <td><?php echo $booking->booking_date; ?></td>
+                    <td class="text-center"><?php echo $booking->num_people; ?></td>
+                    <td><?php echo $booking->special_request; ?></td>
+                    <td><?php echo $booking->created_at; ?></td>
+                    <td><?php echo $booking->status; ?></td>
+                    <td>
+                      <a href="status.php?id=<?php echo $booking->id; ?>" class="btn btn-primary text-center">
+                      Change
+                      </a>
+                    </td>
+                    
+                     <td><a href="delete-bookings.php?id=<?php echo $booking->id; ?>" class="btn btn-danger  text-center">delete</a></td>
                   </tr>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>MOhamed</td>
-                    <td>moha@gmail.com</td>
-                    <td>04/12/2023 3:13 PM</td>
-                    <td>3</td>
-                    <td>Rapidiously expedite team driven potentialities with interoperable "outside the box" thinking. Professionally formulate cross-platform interna</td>
-                    <td>Pending</td>
-                    <td>2023-04-09 15:13:17</td>
-                     <td><a href="delete-bookings.html" class="btn btn-danger  text-center ">delete</a></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>MOhamed</td>
-                    <td>moha@gmail.com</td>
-                    <td>04/12/2023 3:13 PM</td>
-                    <td>3</td>
-                    <td>Rapidiously expedite team driven potentialities with interoperable "outside the box" thinking. Professionally formulate cross-platform interna</td>
-                    <td>Pending</td>
-                    <td>2023-04-09 15:13:17</td>
-                     <td><a href="delete-bookings.html" class="btn btn-danger  text-center ">delete</a></td>
-                  </tr>
+                  <?php endforeach; ?>
                 </tbody>
               </table> 
             </div>
@@ -123,11 +57,4 @@
         </div>
       </div>
 
-
-
-  </div>
-<script type="text/javascript">
-
-</script>
-</body>
-</html>
+      <?php require "../layouts/footer.php"; ?>
