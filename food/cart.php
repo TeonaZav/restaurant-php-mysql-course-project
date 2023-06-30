@@ -56,7 +56,7 @@
                         <tbody>
                         <?php foreach($cart_items as $cart_item) : ?>
                           <tr>
-                            <th><img src="<?php echo APPURL; ?>/img/<?php echo $cart_item->image; ?>.jpg" alt="product image" style="width: 50px; height: 50px; border-radius: 2px"></th>
+                            <th><img src="<?php echo APPURL; ?>/img/<?php echo $cart_item->image; ?>" alt="product image" style="width: 50px; height: 50px; border-radius: 2px"></th>
                             <td><?php echo $cart_item->name; ?></td>
                             <td>$<?php echo $cart_item->price; ?></td>
                             <td><a href="<?php echo APPURL; ?>/food/delete-item.php?id=<?php echo $cart_item->id; ?>" class="btn btn-danger text-white" />delete</td>

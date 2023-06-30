@@ -75,7 +75,7 @@ if(isset($_GET['id'])) {
                   <img
                     class="img-fluid rounded w-100 wow zoomIn"
                     data-wow-delay="0.1s"
-                    src="<?php echo APPURL; ?>/img/<?php echo $one->image; ?>.jpg"
+                    src="<?php echo APPURL; ?>/img/<?php echo $one->image; ?>"
                   />
                 </div>
               </div>
