@@ -149,7 +149,7 @@ $fetch = $login_user->fetch(PDO::FETCH_ASSOC);
           $_SESSION['username'] = $fetch['username'];
           $_SESSION['user_id'] = $fetch['id'];
 
-           header("location: ".APPURL."");
+           header("location: ".$path."");
        }
     }  
 }
