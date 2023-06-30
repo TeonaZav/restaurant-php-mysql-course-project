@@ -17,20 +17,18 @@ $orders = $app->selectAll($query);
             <div class="card-body">
               <h5 class="card-title mb-4 d-inline">Orders</h5>
             
-              <table class="table">
+              <table class="table mt-3">
                 <thead>
                   <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">name</th>
-                    <th scope="col">email</th>
-                    <th scope="col">town</th>
-                    <th scope="col">country</th>
-                    <th scope="col">zipcode</th>
-                    <th scope="col">phone_number</th>
-                    <th scope="col">address</th>
-                    <th scope="col">total_price</th>
-                    <th scope="col">status</th>
-                    <th scope="col">delete</th>
+                    <th scope="col">N</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">e-mail</th>
+                    <th scope="col">Town</th>
+                    <th scope="col">Country</th>
+                    <th scope="col">Tel:</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Total</th>
+                   
                   </tr>
                 </thead>
                 <tbody>
@@ -41,13 +39,9 @@ $orders = $app->selectAll($query);
                     <td><?php echo $order->email; ?></td>
                     <td><?php echo $order->town; ?></td>
                     <td><?php echo $order->country; ?></td>
-                    <td>
-                    <?php echo $order->zipcode; ?>
-                    </td>
                     <td><?php echo $order->phone_number; ?></td>
                     <td><?php echo $order->address; ?> </td>
-                    <td>$<?php echo $order->total_price; ?></td>                     <td><a href="delete-orders.html" class="btn btn-danger  text-center ">delete</a></td>
-                  </tr>
+                    <td>$<?php echo $order->total_price; ?>
                   <?php endforeach; ?>
                 </tbody>
               </table> 
