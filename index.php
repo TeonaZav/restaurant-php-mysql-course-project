@@ -290,9 +290,16 @@
                                         <label for="message">Special Request</label>
                                     </div>
                                 </div>
+                                <?php if(isset($_SESSION['user_id'])) : ?>
                                 <div class="col-12">
                                     <button name="submit" class="btn btn-primary w-100 py-3" type="submit">Book Now</button>
                                 </div>
+                                <?php else: ?>
+                                <div class="col-12">
+                                  <p>Please log in to book a table</p>
+                                  <a href="<?php echo APPURL; ?>/auth/login.php" class="btn btn-primary w-100 py-3">Login</a>
+                                </div>
+                                <?php endif; ?>
                             </div>
                         </form>
                     </div>
