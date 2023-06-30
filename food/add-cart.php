@@ -41,6 +41,8 @@ if(isset($_GET['id'])) {
     $app->insert($query, $arr, $path);
   
   }
+} else {
+  echo "<script>window.location.href='".APPURL."/404.php'</script>";
 }
 
 
