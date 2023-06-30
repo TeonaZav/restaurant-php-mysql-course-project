@@ -169,6 +169,11 @@ public function validateSession() {
   }
 }
 
+public function validateSessionAdmin() {
+  if(isset($_SESSION['email'])) {
+    echo "<script>window.location.href='".ADMINURL."/index.php' </script>";
+  }
+}
 
 }
 

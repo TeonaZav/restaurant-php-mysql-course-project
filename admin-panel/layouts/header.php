@@ -1,3 +1,12 @@
+<?php 
+    $app = new App;
+    $app->startingSession();
+
+    define("ADMINURL", "http://localhost/restoran/admin-panel");
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,14 +30,15 @@
       </button>
 
       <div class="collapse navbar-collapse" id="navbarText">
+      <?php if(isset($_SESSION["email"])) : ?>
         <ul class="navbar-nav side-nav" >
           <li class="nav-item">
-            <a class="nav-link" style="margin-left: 20px;" href="index.html">Home
+            <a class="nav-link" style="margin-left: 20px;" href="<?php echo ADMINURL; ?>/index.php">Home
               <span class="sr-only">(current)</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="admins/admins.html" style="margin-left: 20px;">Admins</a>
+            <a class="nav-link" href="<?php echo ADMINURL; ?>/admins/admins.php" style="margin-left: 20px;">Admins</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="orders-admins/show-orders.html" style="margin-left: 20px;">Orders</a>
@@ -40,26 +50,32 @@
             <a class="nav-link" href="bookings-admins/show-bookings.html" style="margin-left: 20px;">Bookings</a>
           </li>
         </ul>
+        <?php endif; ?>
+
         <ul class="navbar-nav ml-md-auto d-md-flex">
+
           <li class="nav-item">
-            <a class="nav-link" href="index.html">Home
+            <a class="nav-link" href="<?php echo ADMINURL; ?>/index.php">Home
               <span class="sr-only">(current)</span>
             </a>
           </li>
+          <?php if(!isset($_SESSION["email"])) : ?>
           <li class="nav-item">
-            <a class="nav-link" href="admins/login-admins.html">login
+            <a class="nav-link" href="<?php echo ADMINURL; ?>/admins/login-admins.php">login
             </a>
           </li>
+          <?php else: ?>
           <li class="nav-item dropdown">
             <a class="nav-link  dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              username
+              <?php echo $_SESSION['email']; ?>
             </a>
+            
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Logout</a>
+              <a class="dropdown-item" href="<?php echo ADMINURL; ?>/admins/logout.php">Logout</a>
               
           </li>
-                          
-          
+                  
+          <?php endif; ?>
         </ul>
       </div>
     </div>

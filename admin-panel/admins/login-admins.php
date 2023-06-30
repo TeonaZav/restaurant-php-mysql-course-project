@@ -6,7 +6,7 @@
 
     $app = new App;
 
-    $app->validateSession();
+    $app->validateSessionAdmin();
 
     if(isset($_POST['submit'])) {
 
