@@ -3,6 +3,12 @@
 <?php require "../includes/header.php"; ?>
 <?php 
 
+
+    if(!isset($_SESSION['uder_id'])) {
+      echo "<script>window.location.href='".APPURL."'</script>";
+    }
+
+
   $query = "SELECT * FROM cart WHERE user_id = '$_SESSION[user_id]'";
   $app = new App;
 

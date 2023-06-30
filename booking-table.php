@@ -4,6 +4,12 @@
 
 <?php 
 
+    if(!isset($_SERVER['HTTP_REFERER'])) {
+      //redirect them to desired location
+      echo "<script>window.location.href='".APPURL."'</script>";
+      exit;
+    }
+
 $app = new App;
 
 if(isset($_POST['submit'])) {
