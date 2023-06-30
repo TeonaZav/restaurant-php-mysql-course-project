@@ -2,6 +2,15 @@
 <?php require "../libs/App.php"; ?>
 <?php require "layouts/header.php"; ?>
 
+<?php 
+
+$app = new App;
+
+$app->validateSessionAdminPages();
+
+
+?>
+
       <div class="row">
         <div class="col-md-3">
           <div class="card">

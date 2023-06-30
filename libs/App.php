@@ -175,5 +175,11 @@ public function validateSessionAdmin() {
   }
 }
 
+public function validateSessionAdminPages() {
+  if(!isset($_SESSION['email'])) {
+    echo "<script>window.location.href='".ADMINURL."/admins/login-admins.php' </script>";
+  }
+}
+
 }
 
